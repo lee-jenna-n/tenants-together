@@ -1,0 +1,243 @@
+<html>
+  <style>
+    body {
+      font-family: arial, helvetica, sans-serif;
+      margin: 50px 200px;
+      background-color: rgb(172, 190, 123);
+      min-width: 1200px;
+    }
+    form {
+      margin-top: 10px;
+    }
+    h1,
+    h2 {
+      margin-top: 0;
+    }
+    input {
+      display: block;
+      width: 100%;
+    }
+    .email-content {
+      font-size: 10pt;
+    }
+    .section {
+      background-color: white;
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    #email-generation-section {
+      display: flex;
+      background-color: rgb(129, 143, 90);
+      padding: 10px;
+      border-radius: 4px;
+    }
+    #input-section {
+      margin-right: 20px;
+      height: fit-content;
+      width: 300px;
+      flex-shrink: 0;
+    }
+  </style>
+  <body>
+    <h1>Email Script - Tenants Together Resource Directory Outreach</h1>
+    <div class="section" id="instructions-section">
+      <h2>How to use this page:</h2>
+      <ol>
+        <li>
+          Check the
+          <a
+            href="https://docs.google.com/spreadsheets/d/10lQqxLqMN99i3nHy0vHNAJUU9aPLnNGLpYlZS3sTeo4/edit?usp=sharing"
+            >Local Resource Directory volunteer sheet</a
+          >
+          to figure out which organizations to email.
+        </li>
+        <li>
+          Add the volunteer name (i.e. your name) and the organization's name in
+          the text inputs on the left. These names will be added to the
+          generated emails on the right.
+        </li>
+        <li>
+          Click the "Copy to clipboard" button to copy the correct email (i.e.
+          first or second), then paste it into Gmail and send it. You can also
+          use a normal copy+paste if you prefer.
+        </li>
+        <li>
+          Update the
+          <a
+            href="https://docs.google.com/spreadsheets/d/10lQqxLqMN99i3nHy0vHNAJUU9aPLnNGLpYlZS3sTeo4/edit?usp=sharing"
+            >Local Resource Directory volunteer sheet</a
+          >
+          to show that you have contacted the organization.
+        </li>
+      </ol>
+    </div>
+
+    <div id="email-generation-section">
+      <div id="input-section" class="section">
+        <b>Add your name and the organization's name here:</b>
+        <form>
+          <label>Volunteer name: <input id="volunteer-name-input" /></label
+          ><br />
+          <label>Organization name: <input id="org-name-input" /></label>
+        </form>
+
+        <div>
+          These names will be added to the emails generated to the right.
+        </div>
+      </div>
+
+      <div>
+        <div class="section">
+          <div class="section-header">
+            <h2>First email:</h2>
+            <button
+              type="button"
+              onclick="copyHtmlContent('first-email-content')"
+            >
+              Copy to clipboard
+            </button>
+          </div>
+          <div id="first-email-content" class="email-content">
+            <p>
+              Hello, my name is
+              <span class="volunteer-name">{VOLUNTEER NAME}</span> and I
+              volunteer with Tenants Together. We are reaching out to
+              organizations from our online resource directory to verify
+              information.
+            </p>
+
+            <p>
+              If you are still interested in listing
+              <span class="org-name">{ORGANIZATION NAME}</span> on our
+              <a href="https://www.tenantstogether.org/resource-directory"
+                >Local Resource Directory</a
+              >, please fill out this form:
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeeyIejWS3a7B0IiseuebjHXdO5xuSqfYiXNDWTsFgZlhbTcA/viewform"
+                >https://docs.google.com/forms/d/e/1FAIpQLSeeyIejWS3a7B0IiseuebjHXdO5xuSqfYiXNDWTsFgZlhbTcA/viewform</a
+              >
+            </p>
+
+            <p>
+              If you’d prefer to give us your information over the phone, please
+              let us know so we can schedule an appointment.
+            </p>
+
+            <p>
+              If you are no longer interested in including
+              <span class="org-name">{ORGANIZATION NAME}</span> on our website,
+              please respond to this email with your withdrawal and we will
+              remove <span class="org-name">{ORGANIZATION NAME}</span> from our
+              list.
+            </p>
+
+            <p>We look forward to hearing from you!</p>
+
+            Thank you very much for your time,<br />
+            In solidarity,<br />
+            <span class="volunteer-name">{VOLUNTEER NAME}</span>
+            and Tenants Together<br /><br />
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-header">
+            <h2>Second email:</h2>
+            <button
+              type="button"
+              onclick="copyHtmlContent('second-email-content')"
+            >
+              Copy to clipboard
+            </button>
+          </div>
+          <div id="second-email-content" class="email-content">
+            <p>
+              Hello again, my name is
+              <span class="volunteer-name">{VOLUNTEER NAME}</span> with Tenants
+              Together, and I’m following up on our previous email requesting an
+              update for <span class="org-name">{ORGANIZATION NAME}</span>’s
+              information in our online
+              <a href="https://www.tenantstogether.org/resource-directory"
+                >Local Resource Directory</a
+              >.
+            </p>
+
+            <p>
+              If you are still interested in listing
+              <span class="org-name">{ORGANIZATION NAME}</span> on our
+              directory, please fill out this form:
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeeyIejWS3a7B0IiseuebjHXdO5xuSqfYiXNDWTsFgZlhbTcA/viewform"
+                >https://docs.google.com/forms/d/e/1FAIpQLSeeyIejWS3a7B0IiseuebjHXdO5xuSqfYiXNDWTsFgZlhbTcA/viewform</a
+              >
+            </p>
+
+            <p>
+              If you’d prefer to give us your information over the phone, please
+              let us know so we can schedule an appointment.
+            </p>
+
+            <p>
+              If you are no longer interested in including
+              <span class="org-name">{ORGANIZATION NAME}</span> on our website,
+              please respond to this email with your withdrawal and we will
+              remove <span class="org-name">{ORGANIZATION NAME}</span> from our
+              list.
+            </p>
+
+            <p>
+              This is our last email at this time. If we don’t hear back from
+              you within 10 business days, we will have to delete
+              <span class="org-name">{ORGANIZATION NAME}</span> from our
+              directory. However, if you contact us at any point after that, we
+              will readily add
+              <span class="org-name">{ORGANIZATION NAME}</span> back onto our
+              website.
+            </p>
+
+            <p>We look forward to hearing from you!</p>
+
+            Thank you very much for your time,<br />
+            In solidarity,<br />
+            <span class="volunteer-name">{VOLUNTEER NAME}</span>
+            and Tenants Together<br /><br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    document
+      .getElementById("volunteer-name-input")
+      .addEventListener("input", (e) => {
+        const volunteerNameEls =
+          document.getElementsByClassName("volunteer-name");
+        Array.from(volunteerNameEls).forEach(
+          (el) => (el.textContent = e.target.value)
+        );
+      });
+
+    document.getElementById("org-name-input").addEventListener("input", (e) => {
+      const orgNameEls = document.getElementsByClassName("org-name");
+      Array.from(orgNameEls).forEach((el) => (el.textContent = e.target.value));
+    });
+  </script>
+  <script>
+    function copyHtmlContent(elementId) {
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      const range = document.createRange();
+      range.selectNodeContents(document.getElementById(elementId));
+      selection.addRange(range);
+      document.execCommand("copy");
+      selection.removeAllRanges();
+    }
+  </script>
+</html>
